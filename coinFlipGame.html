@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coin Flip game</title>
+</head>
+<body>
+  <h3>Try to guess the coin toss</h3>
+  <label for="guess">Type H for head and T for tails</label>
+  <input type="text" id="guess" placeholder="Type here">
+  <button onclick="
+  guess=document.getElementById('guess').value;
+
+  let result='';
+  //let somenumber=Math.random();
+  if(Math.random()<0.5){
+    result='H';
+    console.log('The toss was Heads');
+    alert('The toss was Heads');
+  } else {
+    result='T';
+    console.log('The toss was Tails');
+    alert('The toss was Tails');
+  }
+
+  if(result===guess){
+    console.log('You Win!');
+    alert('You Win!');
+  } else {
+    console.log('You lose!');
+    alert('You lose!');
+  }
+
+  ">Check</button>
+  <script>
+    let guess='';
+  </script>
+</body>
+</html>

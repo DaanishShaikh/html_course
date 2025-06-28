@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Distance conversion</title>
+</head>
+<body>
+  <h2>Distance conversions</h2>
+  <label for="initunit">Type in the unit of your value as km for kilometer, miles, and feet = </label>
+  <input type="text" id="initunit" placeholder="km or miles or feet">
+  <button onclick="initunits=document.getElementById('initunit').value;">Save</button>
+  <br>
+  <br>
+  <label for="finalunit">Type in the unit to convert the value to as km for kilometer, miles, and feet = </label>
+  <input type="text" id="finalunit" placeholder="km or miles or feet">
+  <button onclick="finalunits=document.getElementById('finalunit').value">Save</button>
+  <br>
+  <br>
+  <label for="value">Enter the value here = </label>
+  <input type="number" id="value" placeholder="Value here">
+  <button onclick="
+  values=document.getElementById('value').value;
+  result=converting(values, initunits, finalunits);
+  if(result!==-1){
+  alert(`Answer=${result}`);
+  } else {
+    alert(`Invalid unit`);
+  }
+  ">Convert</button>
+  <script>
+    let initunits='';
+    let finalunits='';
+    let values=0;
+    let result=0;
+    function converting(values,initunits,finalunits){
+
+        if(initunits==='miles'&&finalunits==='km'){
+          return 1.6*values;
+        } 
+        else if(initunits==='km'&&finalunits==='miles'){
+          return (values/1.6);
+        }
+        else if(initunits==='km'&&finalunits==='feet'){
+          return values/3281;
+        }
+        else if(initunits==='feet'&&finalunits==='km'){
+          return 3281*values;
+        }
+        else if(initunits==='feet'&&finalunits==='miles'){
+          return (values/5280);
+        }
+        else if(initunits==='miles'&&finalunits==='feet'){
+          return 5280*values;
+        }
+        else if(initunits===finalunits){
+          return values;
+        } else {
+          return -1;
+        }
+  }
+  </script>
+</body>
+</html>

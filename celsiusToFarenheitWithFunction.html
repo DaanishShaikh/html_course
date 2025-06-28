@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Celsius To Farenheit</title>
+</head>
+<body>
+  <label for="Unit">Which unit is your value in? Type capital C for Celsius and capital F for Farenheit = </label>
+  <input type="text" id="Unit" placeholder="C or F?">
+  <button onclick="
+  units=document.getElementById('Unit').value;
+  ">Save</button>
+  <br>
+  <label for="Value">Type the value you want to convert = </label>
+  <input type="number" id="Value" placeholder="Value here">
+  <button onclick="
+  values=document.getElementById('Value').value;
+  let result=converting(units,values);
+  if(units==='F'){
+    alert(`${result}C`);
+  } else if(units==='C'){
+    alert(`${result}F`);
+  } else {
+    alert('Invalid unit');
+  }
+  ">Convert</button>
+    <script>
+      let units='';
+      let values=0;
+      function converting(units,values){
+        if(units==='C'){
+          return ((values*9)/5)+32;
+        } else if(units==='F'){
+          return ((values-32)*5)/9;
+        } else {
+          return 0;
+        }
+      }
+    </script>
+</body>
+</html>

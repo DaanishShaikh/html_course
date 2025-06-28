@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Update with function</title>
+  </head>
+  <body>
+    <button title="Quantity of cart" onclick="console.log(`Cart Quantity= ${cartQuantity}`);">Cart Quantity</button>
+    <button onclick="addcart(1);">Add to Cart</button>
+    <button onclick="addcart(2);">+2</button>
+    <button onclick="addcart(3);">+3</button>
+    <button onclick="addcart(4);">+4</button>
+    <button onclick="addcart(5);">+5</button>
+    <button onclick="addcart(-1);">Remove from cart</button>
+    <button onclick="addcart(-2);">-2</button>
+    <button onclick="addcart(-3);">-3</button>
+    <button onclick="cartQuantity=0;console.log(`Cart Quantity= ${cartQuantity}`);">Reset Cart</button>
+      <script>
+        let cartQuantity=0;
+        function addcart(num){
+          if(num>0){
+            if(cartQuantity<=10-num){
+              cartQuantity+=num;
+              console.log(`Cart Quantity= ${cartQuantity}`);
+            } else {
+              console.log('The cart is full');
+            }
+          } else {
+            if(cartQuantity>=-num){
+              cartQuantity+=num;
+              console.log(`Cart Quantity= ${cartQuantity}`);
+            } else {
+              console.log('Not enough items in the cart');
+            }
+          }
+        }
+      </script>
+  </body>
+</html>

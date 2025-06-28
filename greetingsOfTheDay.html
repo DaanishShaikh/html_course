@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>What hour of the day it is for you currently? (in 24 hours format)</p>
+  <input type="text" id="username" placeholder="Whats your name?">
+  <button onclick="
+  names=username.value;
+  ">Save</button>
+  <input type="number" id="Inp">
+  <button onclick="
+  let hour=Inp.value;
+  if(6<=hour&&hour<12){
+    alert(`Good Morning ${names}!`);
+  } else if(13<=hour&&hour<17){
+    alert(`Good Afternoon ${names}!`);
+  } else {
+    
+    alert(`Good Night ${names}!`);
+  
+  }
+  ">Save</button>
+  <script>
+    let names='';
+  </script>
+
+</body>
+</html>

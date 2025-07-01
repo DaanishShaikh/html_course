@@ -1,0 +1,35 @@
+<!-- failed experiment -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="
+  add1();
+  ">1</button> 
+  <button onclick="
+  add2();
+  ">2</button>
+  <button onclick="
+    alert(`one=${score.one} two=${score.two}`);
+  ">score</button>
+  <script>
+    let score=JSON.parse(localStorage.getItem('message')) || {
+      one:0,
+      two:0
+    };
+
+    function add1(){
+        score.one+=1;
+    }
+    function add2(){
+        score.two+=1;
+    }
+            localStorage.setItem('message',JSON.stringify(score));
+h
+  </script>
+</body>
+</html>

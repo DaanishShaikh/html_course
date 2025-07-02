@@ -6,35 +6,48 @@
   <title>Coin Flip game</title>
 </head>
 <body>
-  <h3>Try to guess the coin toss</h3>
-  <label for="guess">Type H for head and T for tails</label>
-  <input type="text" id="guess" placeholder="Type here">
+  <h3>Choose head or tails</h3>
+  <!-- <label for="guess">Type H for head and T for tails</label> -->
   <button onclick="
+  play('H');
+  ">Heads</button>
+  <button onclick="
+  play('T');
+  ">Tails</button>
+  <!-- <input type="text" id="guess" placeholder="Type here"> -->
+  <!-- <button onclick="
   guess=document.getElementById('guess').value;
-
-  let result='';
-  //let somenumber=Math.random();
-  if(Math.random()<0.5){
-    result='H';
-    console.log('The toss was Heads');
-    alert('The toss was Heads');
-  } else {
-    result='T';
-    console.log('The toss was Tails');
-    alert('The toss was Tails');
-  }
-
-  if(result===guess){
-    console.log('You Win!');
-    alert('You Win!');
-  } else {
-    console.log('You lose!');
-    alert('You lose!');
-  }
-
-  ">Check</button>
+  ">Check</button> -->
   <script>
     let guess='';
+    let score=JSON.parse(localStorage.getItem('score'))||{
+      win:0,
+      losses:0
+    };
+    function play(guess){
+      let result='';
+      //let somenumber=Math.random();
+      if(Math.random()<0.5){
+        result='H';
+        console.log('The toss was Heads');
+        // alert('The toss was Heads');
+      } else {
+        result='T';
+        console.log('The toss was Tails');
+        // alert('The toss was Tails');
+      }
+
+      if(result===guess){
+        score.win++;
+        console.log('You Win!');
+        alert(`The toss was=${result}\nYou Win!\nWins=${score.win} Losses=${score.losses}`);
+      } else {
+        score.losses++;
+        console.log('You lose!');
+        alert(`The toss was=${result}\nYou lose!\nWins=${score.win} Losses=${score.losses}`);
+      }
+      localStorage.setItem('score',JSON.stringify(score));
+        }
   </script>
 </body>
 </html>

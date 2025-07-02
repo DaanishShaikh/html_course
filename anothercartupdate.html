@@ -94,12 +94,37 @@
       console.log(`Cart Quantity= ${cartQuantity}`);">
       Reset Cart
     </button>
+    <br>
+    <button onclick="
+    alert(`price=${basketball.price} cents\nDelivery time=${basketball.deliverytime} days`);
+    ">Basketball</button>
+    <button onclick="basketball.price+=500;">Increase basketball price by 500 cents</button>
+    <br>
+    <button onclick="
+    alert(`Price=${football.price} Delivery time=${football.deliverytime}`);
+    ">Football</button>
+    <button onclick="football.price+=500;">Increase football price by 500 cents</button>
+    <button onclick="check(basketball.price,football.price);">Which is more expensive?</button>
     <script>
       let cartQuantity=0;
       let basketball={
         price:2050
       };
        console.log(basketball.price);
+       basketball["deliverytime"]=3;
+       let football={
+         price:2000,
+       }
+       football["deliverytime"]=2;
+       function check(x,y){
+        if(x>y){
+          alert((`Basketball is more expensive`).repeat(2));
+        } else if(x<y){
+          alert(2*(`Football is more expensive`).repeat(2));
+        } else {
+          alert('Both same price'.repeat(2));
+        }
+       }
     </script>
 </body>
 </html>

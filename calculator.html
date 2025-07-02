@@ -17,32 +17,33 @@
   <body>
     <p>Calculator</p>
 
-    <button class="regButtons" onclick="calculation += '1';">1</button>
-    <button class="regButtons" onclick="calculation += '2';">2</button>
-    <button class="regButtons" onclick="calculation += '3';">3</button>
-    <button class="regButtons" onclick="calculation += ' + '; ">+</button>
+    <button class="regButtons" onclick="calculation += '1';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">1</button>
+    <button class="regButtons" onclick="calculation += '2';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">2</button>
+    <button class="regButtons" onclick="calculation += '3';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">3</button>
+    <button class="regButtons" onclick="calculation += ' + ';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">+</button>
 
     <br><br>
 
-    <button class="regButtons" onclick="calculation += '4';">4</button>
-    <button class="regButtons" onclick="calculation += '5';">5</button>
-    <button class="regButtons" onclick="calculation += '6';">6</button>
-    <button class="regButtons" onclick="calculation += ' - '; ">-</button>
+    <button class="regButtons" onclick="calculation += '4';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">4</button>
+    <button class="regButtons" onclick="calculation += '5';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">5</button>
+    <button class="regButtons" onclick="calculation += '6';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">6</button>
+    <button class="regButtons" onclick="calculation += ' - ';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">-</button>
 
     <br><br>
 
-    <button class="regButtons" onclick="calculation += '7';">7</button>
-    <button class="regButtons" onclick="calculation += '8';">8</button>
-    <button class="regButtons" onclick="calculation += '9';">9</button>
-    <button class="regButtons" onclick="calculation += ' * '; ">*</button>
+    <button class="regButtons" onclick="calculation += '7';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">7</button>
+    <button class="regButtons" onclick="calculation += '8';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">8</button>
+    <button class="regButtons" onclick="calculation += '9';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">9</button>
+    <button class="regButtons" onclick="calculation += ' * ';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">*</button>
 
     <br><br>
 
-    <button class="regButtons" onclick="calculation += '0';">0</button>
-    <button class="regButtons" onclick="calculation += '.';">.</button>
+    <button class="regButtons" onclick="calculation += '0';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">0</button>
+    <button class="regButtons" onclick="calculation += '.';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">.</button>
     <button class="regButtons" onclick="
       calculation = eval(calculation);
       console.log(`Answer=${calculation}`);
+      alert(`calculation${calculation}`);
       calculation = '';
     ">
       =
@@ -54,7 +55,8 @@
     <button class="longButton" onclick="calculation = '';">Clear</button>
 
     <script>
-      let calculation = '';
+      let calculation = JSON.parse(localStorage.getItem('save')) || '';
+      alert(calculation);
     </script>
   </body>
 </html>

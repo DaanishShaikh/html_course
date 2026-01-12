@@ -5,64 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <style>
-      .longButton {
-        width: 113px;
-      }
-
+      
       .regButtons {
         width: 25px;
       }
       body {
         font-family: Arial, sans-serif;
         background-color: black;
+        color: white;
       }
-      .greybuttons {
-        background-color: rgb(77, 64, 64);
+      .live {
+        font-size: 30px;
+        margin-bottom: 20px;
+        color: white;
+        min-height: 50px;
+      }
+      .orangebuttons {
+        background-color: rgb(255, 165, 0);
         padding: 20px;
         padding-right: 30px;
-
+        border-radius: 30px;
+        border : none;
+        width: 10px;
+        cursor: pointer;
+        color: white;
+      }
+      .greybuttons {
+        background-color: rgb(123, 123, 123);
+        padding: 20px;
+        padding-right: 30px;
+        border-radius: 30px;
+        border : none;
+        width: 10px;
+        cursor: pointer;
+        color: white;
+      }
+      .cleargreybuttons {
+        background-color: rgb(123, 123, 123);
+        padding: 10px;
+        height: 50px;
+        width: 50px;
+        border-radius: 30px;
+        border : none;
+        font-size: 10px;
+        cursor: pointer;
+        color: white;
       }
     </style>
   </head>
   <body >
-    <p>Calculator</p>
+    <p class="live"></p>
 
-    <button class="regButtons greybuttons" onclick="calculation += '1';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">1</button>
-    <button class="regButtons" onclick="calculation += '2';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">2</button>
-    <button class="regButtons" onclick="calculation += '3';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">3</button>
-    <button class="regButtons" onclick="calculation += ' + ';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">+</button>
-
-    <br><br>
-
-    <button class="regButtons" onclick="calculation += '4';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">4</button>
-    <button class="regButtons" onclick="calculation += '5';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">5</button>
-    <button class="regButtons" onclick="calculation += '6';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">6</button>
-    <button class="regButtons" onclick="calculation += ' - ';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">-</button>
+    <button class="regButtons greybuttons" onclick="calculation += '1'; document.querySelector('.live').innerHTML = calculation;
+    localStorage.setItem('save',JSON.stringify(calculation));">1</button>
+    <button class="regButtons greybuttons" onclick="calculation += '2';document.querySelector('.live').innerHTML = calculation;localStorage.setItem('save',JSON.stringify(calculation));">2</button>
+    <button class="regButtons greybuttons" onclick="calculation += '3';document.querySelector('.live').innerHTML = calculation;localStorage.setItem('save',JSON.stringify(calculation));">3</button>
+    <button class="regButtons orangebuttons" onclick="calculation += ' + ';document.querySelector('.live').innerHTML = calculation;localStorage.setItem('save',JSON.stringify(calculation));">+</button>
 
     <br><br>
 
-    <button class="regButtons" onclick="calculation += '7';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">7</button>
-    <button class="regButtons" onclick="calculation += '8';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">8</button>
-    <button class="regButtons" onclick="calculation += '9';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">9</button>
-    <button class="regButtons" onclick="calculation += ' * ';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">*</button>
+    <button class="regButtons greybuttons" onclick="calculation += '4';document.querySelector('.live').innerHTML = calculation;localStorage.setItem('save',JSON.stringify(calculation));">4</button>
+    <button class="regButtons greybuttons" onclick="calculation += '5';document.querySelector('.live').innerHTML = calculation;localStorage.setItem('save',JSON.stringify(calculation));">5</button>
+    <button class="regButtons greybuttons" onclick="calculation += '6';document.querySelector('.live').innerHTML = calculation;localStorage.setItem('save',JSON.stringify(calculation));">6</button>
+    <button class="regButtons orangebuttons" onclick="calculation += ' - ';document.querySelector('.live').innerHTML = calculation;localStorage.setItem('save',JSON.stringify(calculation));">-</button>
 
     <br><br>
 
-    <button class="regButtons" onclick="calculation += '0';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">0</button>
-    <button class="regButtons" onclick="calculation += '.';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">.</button>
-    <button class="regButtons" onclick="
+    <button class="regButtons greybuttons" onclick="calculation += '7';document.querySelector('.live').innerHTML = calculation;localStorage.setItem('save',JSON.stringify(calculation));">7</button>
+    <button class="regButtons greybuttons" onclick="calculation += '8';document.querySelector('.live').innerHTML = calculation;localStorage.setItem('save',JSON.stringify(calculation));">8</button>
+    <button class="regButtons greybuttons" onclick="calculation += '9';document.querySelector('.live').innerHTML = calculation;localStorage.setItem('save',JSON.stringify(calculation));">9</button>
+    <button class="regButtons orangebuttons" onclick="calculation += ' * ';document.querySelector('.live').innerHTML = calculation;localStorage.setItem('save',JSON.stringify(calculation));">*</button>
+
+    <br><br>
+
+    <button class="regButtons greybuttons" onclick="calculation += '0';document.querySelector('.live').innerHTML = calculation;localStorage.setItem('save',JSON.stringify(calculation));">0</button>
+    <button class="regButtons greybuttons" onclick="calculation += '.';document.querySelector('.live').innerHTML = calculation;localStorage.setItem('save',JSON.stringify(calculation));">.</button>
+    <button class="regButtons greybuttons" onclick="
       calculation = eval(calculation);
       console.log(`Answer=${calculation}`);
-      alert(`calculation=${calculation}`);
+      document.querySelector('.live').innerHTML = calculation;      
       calculation = '';
     ">
       =
     </button>
-    <button class="regButtons" onclick="calculation += ' / '; ">/</button>
+    <button class="regButtons orangebuttons" onclick="calculation += ' / '; ">/</button>
 
     <br><br>
 
-    <button class="longButton" onclick="calculation = '';">Clear</button>
+    <button class="cleargreybuttons" onclick="calculation = '';document.querySelector('.live').innerHTML = calculation;">Clear</button>
 
     <script>
       let calculation = JSON.parse(localStorage.getItem('save')) || '';

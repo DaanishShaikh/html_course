@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>YouTube subscriber button</p>
+  <button class="js-sub" onclick="
+  subscribe_please();
+  ">Subscribe</button>
+
+  <p>Amazon Shipping Calculator</p>
+  <input placeholder="Cost of Order" class="js-cost" onkeydown="
+  enter_key_down(event);  
+  ">
+  <button onclick="
+  cost_of_stuff();
+  ">Calculate</button>
+  <p class="js-final-price"></p>
+
+  <script>
+    function enter_key_down(){
+    if(event.key==='Enter'){
+        cost_of_stuff();
+      }
+    }
+    function cost_of_stuff(){
+      const actual_cost=document.querySelector('.js-cost');
+      const value_of_actual_cost=Number(actual_cost.value);
+      if(value_of_actual_cost<40){
+        console.log(value_of_actual_cost+10);
+      document.querySelector('.js-final-price').innerHTML=`$${value_of_actual_cost+10}`;
+      }
+    }
+
+    function subscribe_please(){
+      if(document.querySelector('.js-sub').innerText==='Subscribe'){    //innerText will remove any spacing in the chosen tag 
+        document.querySelector('.js-sub').innerHTML='Subscribed';
+      } else {
+        document.querySelector('.js-sub').innerHTML='Subscribe';
+      }
+    }
+  </script>
+</body>
+</html>

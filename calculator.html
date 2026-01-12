@@ -12,12 +12,22 @@
       .regButtons {
         width: 25px;
       }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: black;
+      }
+      .greybuttons {
+        background-color: rgb(77, 64, 64);
+        padding: 20px;
+        padding-right: 30px;
+
+      }
     </style>
   </head>
-  <body>
+  <body >
     <p>Calculator</p>
 
-    <button class="regButtons" onclick="calculation += '1';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">1</button>
+    <button class="regButtons greybuttons" onclick="calculation += '1';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">1</button>
     <button class="regButtons" onclick="calculation += '2';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">2</button>
     <button class="regButtons" onclick="calculation += '3';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">3</button>
     <button class="regButtons" onclick="calculation += ' + ';alert(calculation);localStorage.setItem('save',JSON.stringify(calculation));">+</button>
@@ -43,7 +53,7 @@
     <button class="regButtons" onclick="
       calculation = eval(calculation);
       console.log(`Answer=${calculation}`);
-      alert(`calculation${calculation}`);
+      alert(`calculation=${calculation}`);
       calculation = '';
     ">
       =
@@ -56,7 +66,7 @@
 
     <script>
       let calculation = JSON.parse(localStorage.getItem('save')) || '';
-      alert(calculation);
+      //alert(calculation);
     </script>
   </body>
 </html>

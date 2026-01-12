@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .off {
+      background-color: grey;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .on {
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    
+  </style>
+</head>
+<body>
+  <button class="game off" 
+  onclick="
+    document.querySelector('.game').classList.add('on');
+    if(document.querySelector('.music').classList.contains('on')){
+        document.querySelector('.music').classList.remove('on');
+      }
+      if(document.querySelector('.tech').classList.contains('on')){
+        document.querySelector('.tech').classList.remove('on');
+      }
+  ">Gaming</button>
+  <button class="music off" 
+  onclick="
+    document.querySelector('.music').classList.add('on');
+    if(document.querySelector('.game').classList.contains('on')){
+        document.querySelector('.game').classList.remove('on');
+      }
+      if(document.querySelector('.tech').classList.contains('on')){
+        document.querySelector('.tech').classList.remove('on');
+      }
+  ">Music</button>
+  <button class="tech off" 
+  onclick="
+    document.querySelector('.tech').classList.add('on');
+    if(document.querySelector('.game').classList.contains('on')){
+        document.querySelector('.game').classList.remove('on');
+      }
+      if(document.querySelector('.music').classList.contains('on')){
+        document.querySelector('.music').classList.remove('on');
+      }
+  ">Tech</button>
+  <script>
+     
+  </script>
+</body>
+</html>

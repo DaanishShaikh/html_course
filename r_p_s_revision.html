@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock paper scissors</title>
+</head>
+<body>
+  <button class="butt" onclick="usermove='rock';playGame(usermove);showscore(); showresult();
+    ">Rock</button>
+  <button onclick="usermove='paper';playGame(usermove);showscore();showresult();
+  ">Paper</button>
+  <button onclick="
+    usermove='scissors';
+    playGame(usermove);
+    showscore();
+    showresult();
+  ">Scissors</button>
+  <p class="result"></p>
+  <p class="score"></p>
+  <button onclick="
+    score.wins=0;
+    score.losses=0;
+    score.draws=0;
+    localStorage.removeItem('score');
+  ">
+    Reset score
+  </button>
+  <p>Amazon Shipping Calculator</p>
+  <input placeholder="Cost of Order" class="cost-input" onkeydown="
+    if(event.key==='Enter'){
+      calculateTotalCost();
+    }
+  ">
+  <button onclick="
+    calculateTotalCost();
+  ">Submit</button>
+  <p class="totalcost"></p>
+  <script>
+    let score=JSON.parse(localStorage.getItem('score'))||{
+      wins:0,
+      losses:0,
+      draws:0
+    };
+    let computerMove="";
+    let usermove="";
+    let result="";
+    function playGame(usermove){
+      if(usermove=='rock'){
+        computerMove=checkCompMove();
+        if(computerMove=='rock'){
+          result="its a tie!";
+        } else if (computerMove=='scissors'){
+          result="You win!";
+        } else {
+          result="You lose!";
+        }
+      }
+      if(usermove=='paper'){
+        computerMove=checkCompMove();
+        if(computerMove=='rock'){
+          result="You win!";
+        } else if (computerMove=='scissors'){
+          result="its a tie!";
+        } else {
+          result="You lose!";
+        }
+      }
+      if(usermove=='scissors'){
+        computerMove=checkCompMove();
+        if(computerMove=='rock'){
+          result="You lose!";
+        } else if (computerMove=='scissors'){
+          result="its a tie!";
+        } else {
+          result="You win!";
+        }
+      }
+      if(result=="You lose!"){
+        score.losses++;
+      } else if(result=="You win!"){
+        score.wins++;
+      } else {
+        score.draws++;
+      }
+          localStorage.setItem('score',JSON.stringify(score));
+    }
+    function checkCompMove(){
+      let randomNumber=Math.random();
+      if(randomNumber>=0 && randomNumber<1/3){
+        computerMove='rock';
+      } else if(randomNumber>=1/3 && randomNumber<2/3){
+        computerMove='paper';
+      } else {
+        computerMove='scissors';
+      }
+      return computerMove;
+    } 
+    function showresult(){
+      document.querySelector('.result').innerHTML=result;
+    }
+    function showscore(){
+      document.querySelector('.score').innerHTML=`Wins = ${score.wins} Losses = ${score.losses} Draws = ${score.draws}`;
+    }
+    let something=document.querySelector('.butt');
+    console.log(something);
+    console.log(typeof something);
+    function calculateTotalCost(){
+      let valuefrominput=document.querySelector('.cost-input').value;
+      let actualcost=Number(valuefrominput);
+      if(actualcost<40){
+        document.querySelector('.totalcost').innerHTML=`Total cost = $${actualcost+10}`;
+      } else {
+        document.querySelector('.totalcost').innerHTML=`Total cost = $${actualcost}`;
+      }
+    }
+</script>
+</body>
+</html>

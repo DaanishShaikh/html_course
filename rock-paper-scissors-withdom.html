@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <p>Choose amongst Rock Paper and Scissors</p>
+
+    <button onclick="
+      user='Rock'; 
+      //alert(`You=${user}`);
+      play();
+    ">Rock</button>
+
+    <button onclick="
+      user='Paper';
+      //alert(`You=${user}`);
+      play();
+    ">Paper</button>
+
+    <button onclick="
+      user='Scissors';
+      //alert(`You=${user}`);
+      play();
+    ">Scissors</button>
+
+    <p class="js-result"></p>
+    <p class="js-move"></p>
+    <p class="js-score"></p>
+
+    <button onclick="
+    score.win=0;
+    score.losses=0;
+    score.draw=0;
+    localStorage.removeItem('score');
+    updatescore();
+
+    ">Reset score</button>
+
+    <script>
+      let user = '';
+      let computer = '';
+      let result='Choose';
+      const score =JSON.parse(localStorage.getItem('score')) || {
+        win:0,
+        losses:0,
+        draw:0
+      };
+      updatescore();
+      function play(){
+        let randnum = Math.random();
+      if (randnum < 1/3) {
+        computer='Rock';
+      } else if (1/3 <= randnum && randnum < 2/3) {
+        computer='Paper';
+      } else {
+        computer='Scissors';
+      }
+      if (user === 'Rock' && computer === 'Paper') {
+        result='You lose';
+      } else if (user === 'Scissors' && computer === 'Rock') {
+        result='You lose';
+      } else if (user === 'Paper' && computer === 'Scissors') {
+        result='You lose';
+      } else if (user === computer) {
+        result='Draw';
+
+      } else {
+        result='You win';
+      }
+      if(result==='You win'){
+        score.win+=1;
+      } else if(result==='You lose'){
+        score.losses+=1;
+      } else if(result==='Draw'){
+        score.draw+=1;
+      }
+      localStorage.setItem('score',JSON.stringify(score));
+      updatescore();     
+      document.querySelector('.js-result').innerHTML=result;
+      document.querySelector('.js-move').innerHTML=`You ${user} - ${computer} Computer`;
+      }
+      function updatescore(){
+      document.querySelector('.js-score').innerHTML = `Wins : ${score.win} Losses : ${score.losses} Draw : ${score.draw}`;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!-- D.O.M. = Document Object Modelling -->
+ <!-- the document object represents or models the webpage, hence we call it document object modelling -->
+  <!-- dom combines html and javascript together and gives javscript control over the webpage -->
+   <!-- the html element is converted to a javascript object -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+ </head>
+ <body>
+  <button>Hello</button>
+  <button class="js-button">Second button</button>  
+    <script>
+
+      // console.log(document.querySelector('button'));    //gets the first button element and displays on alert
+      console.log(document.querySelector('.js-button'));
+      alert(document.querySelector('button').innerHTML);   //gets whats inside the element tags
+      const buttonbutton=document.querySelector('.js-button');
+      console.log(buttonbutton);
+      document.querySelector('button').innerHTML='changed';   //changes whats inside the element button
+      alert(document.title);    //document.title give the title of the webpage
+      alert(document.body.innerHTML);   //displays everything in the body element as alert
+      document.body.innerHTML='Hello';   //changes everything in the body element to only hello
+      document.title='Good one!';   //changing the title of the webpage
+      document.body.innerHTML='<button>Good Job!</button>';
+    </script>
+ </body>
+ </html>

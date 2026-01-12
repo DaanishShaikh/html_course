@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .css-cost{
+      padding : 10px;
+    }
+    .css-calculate-button{
+      color: white;
+      background-color: green;
+      padding: 10px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .css-sub{
+      background-color: black;
+      color: white;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 15px;
+      padding-right: 15px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 30px;
+    }
+    .css-subscribed{
+      background-color: rgb(240,240,240);
+      color: black;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 15px;
+      padding-right: 15px;
+      border-radius: 50px;
+      border: none;
+    }
+    body{
+      font-family: Arial;
+    }
+  </style>
+</head>
+<body>
+  <p>YouTube subscriber button</p>
+  <button class="js-sub css-sub" onclick="
+  subscribe_please();
+  ">Subscribe</button>
+
+  <p>Amazon Shipping Calculator</p>
+  <input placeholder="Cost of Order" class="js-cost css-cost" onkeydown="
+  enter_key_down(event);  
+  ">
+  <button class="css-calculate-button" onclick="
+  cost_of_stuff();
+  ">Calculate</button>
+  <p class="js-final-price"></p>
+
+  <script>
+    function enter_key_down(){
+    if(event.key==='Enter'){
+        cost_of_stuff();
+      }
+    }
+    function cost_of_stuff(){
+      const actual_cost=document.querySelector('.js-cost');
+      const value_of_actual_cost=Number(actual_cost.value);
+      if(value_of_actual_cost<40){
+        console.log(value_of_actual_cost+10);
+      document.querySelector('.js-final-price').innerHTML=`$${value_of_actual_cost+10}`;
+      }
+    }
+
+    function subscribe_please(){
+      const subscribebutton=document.querySelector('.js-sub');
+      if(subscribebutton.innerText==='Subscribe'){    //innerText will remove any spacing in the chosen tag
+        subscribebutton.innerHTML='Subscribed';
+        subscribebutton.classList.add('css-subscribed');
+      } else {
+        subscribebutton.innerHTML='Subscribe';
+        subscribebutton.classList.remove('css-subscribed');
+      }
+    }
+  </script>
+</body>
+</html>

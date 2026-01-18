@@ -1,0 +1,46 @@
+      .regButtons {
+        width: 25px;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: black;
+        color: white;
+      }
+      .live {
+        font-size: 30px;
+        margin-bottom: 20px;
+        color: white;
+        min-height: 50px;
+      }
+      .orangebuttons {
+        background-color: rgb(255, 165, 0);
+        padding: 20px;
+        padding-right: 30px;
+        border-radius: 30px;
+        border : none;
+        width: 10px;
+        cursor: pointer;
+        color: white;
+      }
+      .greybuttons {
+        background-color: rgb(51, 51, 51);
+        padding: 20px;
+        padding-right: 30px;
+        border-radius: 30px;
+        border : none;
+        width: 10px;
+        cursor: pointer;
+        color: white;
+        /* font-size: 20px; */
+      }
+      .cleargreybuttons {
+        background-color: rgb(51, 51, 51);
+        padding: 10px;
+        height: 50px;
+        width: 50px;
+        border-radius: 30px;
+        border : none;
+        font-size: 10px;
+        cursor: pointer;
+        color: white;
+      }

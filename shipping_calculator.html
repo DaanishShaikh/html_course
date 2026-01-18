@@ -9,18 +9,26 @@
   </style>
 </head>
 <body>
-  <input class="inputhere" placeholder="Enter a number">
+  <input class="inputhere" placeholder="Enter a number" onkeydown="
+  if(event.key==='Enter'){
+    calculateShipping();
+  }
+  ">
   <button onclick="
-  let inputValue = Number(document.querySelector('.inputhere').value);
-  if(inputValue<0){
-    document.querySelector('.paragraph').innerText = 'Error: cost cannot be less than $0';
-  } else if(inputValue<=40){
-    document.querySelector('.paragraph').innerText = `The shipping cost is $${inputValue+10}`;
-  } 
+    calculateShipping();  
   ">Calculate</button>
   <p class="paragraph"></p>
   <script>
-
+    function calculateShipping() {
+      let inputValue = Number(document.querySelector('.inputhere').value);
+      if(inputValue<0){
+        document.querySelector('.paragraph').innerText = 'Error: cost cannot be less than $0';
+      } else if(inputValue<=40){
+        document.querySelector('.paragraph').innerText = `The shipping cost is $${inputValue+10}`;
+      } else {
+        document.querySelector('.paragraph').innerText = `The shipping cost is $${inputValue}`;
+      }
+    }
   </script>
 </body>
 </html>

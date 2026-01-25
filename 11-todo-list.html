@@ -1,5 +1,22 @@
 <!-- align-items property in CSS is by default stretch 
- in css if you want to give the same property to different classes you can use a comma and right the two properties-->
+ in css if you want to give the same property to different classes you can use a comma and right the two properties
+ 
+ important lesson on array: Array are reference types in javascript
+ if you declare an array
+ let array1=[1,2,3];
+ then you try to copy it like this
+ let array2=array1;
+ then both array1 and array2 will point to the same array in the memory
+ so if you change array2 the array1 will also change
+ to avoid this you can use the slice method like this
+  let array2=array1.slice();
+  this will create a new array in the memory and copy all the elements of array1 to array2
+
+  destructuring
+  let [firstelement, secondelement]=[1,2];
+  then firstelement will be 1 and secondelement will be 2
+  
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

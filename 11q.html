@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array project</title>
+  <style>
+    .input-string, .input-word {
+      margin: 10px;
+      padding: 5px;
+      font-size: 16px;
+    }
+    .add-button {
+      padding: 5px 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Array project</h1>
+  <input type="text" placeholder="Enter strings" class="input-string" onkeydown="if(event.key==='Enter'){addStringToArray();}">
+  <button onclick="addStringToArray()" class="add-button">Add</button>
+  <br>
+  <input placeholder="Enter the word" class="input-word" onkeydown="if(event.key==='Enter'){alert(findindex(strings, document.querySelector('.input-word').value));}">
+  <button onclick="alert(findindex(strings, document.querySelector('.input-word').value))" class="add-button">Add</button>
+  <script>
+    let strings = [];
+    function addStringToArray(){
+      const inputstring = document.querySelector('.input-string').value;
+      strings.push(inputstring);
+      console.log(strings);
+    }
+    function findindex(array,word){
+      for(let i=0 ; i<array.length ; i++){
+        if(array[i]===word){
+          return i;
+        }
+      }
+      return -1;
+    }
+  </script>
+</body>
+</html>

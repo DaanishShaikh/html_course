@@ -1,15 +1,22 @@
+<!-- align-items property in CSS is by default stretch 
+ in css if you want to give the same property to different classes you can use a comma and right the two properties-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ToDo List</title>
+  <link rel="stylesheet" href="styles/11-todo-list.css">
 </head>
 <body>
   <p>ToDo list</p>
-  <input placeholder="Todo name" class="input-bar" onkeydown="enterfunction (event);">
-  <button onclick="dostuff();">Add</button>
-  <div class="todolistelements"></div>
+  <div class="todo-input-grid">
+  <input placeholder="Todo name" class="input-bar name-input" onkeydown="enterfunction (event);">
+  <input type="date" class="input-date date-input" onkeydown="enterfunction (event);">
+  <button onclick="dostuff();" class="add-button">Add</button></div>
+  
+  
+  <div class="todolistelements todogrid"></div>
   <script src="scripts/11-todo-list.js"></script>
 </body>
 </html>

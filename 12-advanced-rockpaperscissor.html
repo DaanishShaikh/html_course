@@ -24,11 +24,7 @@
   <p class="moves"></p>
   <p class="score css-score"></p>
   <button onclick="
-    score.wins=0;
-    score.losses=0;
-    score.draws=0;
-    showscore();
-    localStorage.removeItem('score');
+    resetScore();
   " class="css-resetbutton">
     Reset score
   </button>

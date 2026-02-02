@@ -1,4 +1,4 @@
-let score=JSON.parse(localStorage.getItem('score'))||{
+    let score=JSON.parse(localStorage.getItem('score'))||{
       wins:0,
       losses:0,
       draws:0
@@ -6,6 +6,20 @@ let score=JSON.parse(localStorage.getItem('score'))||{
     let computerMove="";
     let usermove="";
     let result="";
+    document.body.addEventListener('keydown',(event)=>{
+      if(event.key==='r'){
+        usermove='rock';
+        playGame(usermove);
+      }
+      if(event.key==='p'){
+        usermove='paper';
+        playGame(usermove);
+      }
+      if(event.key==='s'){
+        usermove='scissors';
+        playGame(usermove);
+      }
+    });
     function playGame(usermove){
       if(usermove=='rock'){
         computerMove=checkCompMove();

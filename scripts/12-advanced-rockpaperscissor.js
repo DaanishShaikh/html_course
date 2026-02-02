@@ -3,6 +3,19 @@ let score=JSON.parse(localStorage.getItem('score'))||{
       losses:0,
       draws:0
 };
+document.body.addEventListener('keydown', (event)=>{
+  if(event.key==='r'){
+    playGame('rock');
+  } else if(event.key==='p'){
+    playGame('paper');
+  } else if(event.key==='s'){
+    playGame('scissors');
+  } else if(event.key==='Enter'){
+    autoPlay();
+  } else if(event.key==='Escape'){
+    resetScore();
+  } 
+});
 let computerMove="";
 let usermove="";
 let result="";
@@ -83,4 +96,13 @@ function showscore(){
 }
 function showmoves(){
   document.querySelector('.moves').innerHTML=`You <img src="images/${usermove}-emoji.png" class="move-icon"> vs <img src="images/${computerMove}-emoji.png" class="move-icon"> Computer`;
+}
+function resetScore(){
+  score={
+    wins:0,
+    losses:0,
+    draws:0
+  };
+  localStorage.removeItem('score');
+  showscore();
 }

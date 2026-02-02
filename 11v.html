@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fizz Buzz</title>
+</head>
+<body>
+  <p>Fizz Buzz</p>
+  <input placeholder="Enter number" class="number-input" onkeydown="if(event.key==='Enter'){playFizzBuzz();}">
+  <button onclick="playFizzBuzz();">Submit</button>
+  <script>
+    function playFizzBuzz(){
+      let num=Number(document.querySelector('.number-input').value);
+      for(let i=1 ; i<=num ; i++){
+      if(i%3===0 && i%5===0){
+        console.log('FizzBuzz');
+      }
+      else if(i%3===0){
+        console.log('Fizz');
+      }
+      else if(i%5===0){
+        console.log('Buzz');
+      }
+      else{
+        console.log(i);
+      }
+    }
+    }
+    
+  </script>
+</body>
+</html>

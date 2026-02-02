@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setinterval</title>
+</head>
+<body>
+  <button class="finish-button" onclick="settimeoutplease();">Start</button>
+  <script>
+    let buttonstatus = false;
+    function settimeoutplease(){
+      document.querySelector(".finish-button").innerText="Processing...";
+    if(!buttonstatus){
+    setTimeout(function(){
+      document.querySelector(".finish-button").innerText="Finished";
+    }, 1000);
+    buttonstatus = true;
+    } else {
+      document.querySelector(".finish-button").innerText="Finish";
+      buttonstatus = false;
+    }
+  }
+  </script>
+</body>
+</html>

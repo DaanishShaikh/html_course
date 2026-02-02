@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TikTok</title>
+</head>
+<body>
+  <button onclick="messageingadd();">Add</button>
+  <button onclick="messageingremove();">Remove</button>
+  <script>
+    let intervalId;
+    messagecount=0;
+    function titlechange(){
+      if( messagecount==0){
+        clearInterval(intervalId);
+        document.title="TikTok";
+        return;
+    } else {
+      let onbutton=true;
+      intervalId = setInterval(() => {
+      if(onbutton){
+        document.title=`(${messagecount}) New messages`;
+      } else {
+        document.title="TikTok";
+      }
+      onbutton = !onbutton;
+      }, 1000);
+    }
+    if(messagecount==0){
+      clearInterval(intervalId);
+      document.title="TikTok";
+    }
+  }
+    
+    function messageingadd(){
+      messagecount++;
+      titlechange();
+    }
+    function messageingremove(){
+      if(messagecount>0){
+        messagecount--;
+        titlechange();            
+      } else if(messagecount==0){
+        clearInterval(intervalId);
+        document.title="TikTok";
+      }
+    }
+  </script>
+</body>
+</html>

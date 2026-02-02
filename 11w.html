@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>singlify</title>
+</head>
+<body>
+  <input placeholder="Enter a string" class="input-string" onkeydown="if(event.key==='Enter'){addStringToArray();}">
+  <button onclick="addStringToArray()">Add</button>
+  <div class="display"></div>
+</body>
+  <script>
+    let stringarray=[];
+    function addStringToArray(){
+      const inputstring=document.querySelector('.input-string').value;
+        if(findindex(stringarray,inputstring)===-1){
+          stringarray.push(inputstring);
+        }
+      document.querySelector('.display').innerHTML='';
+      let displaydiv='';
+      for(let i=0 ; i<stringarray.length ; i++){
+        displaydiv+=`<p>${stringarray[i]}</p>`;
+      }
+      document.querySelector('.display').innerHTML=displaydiv;
+    }
+    function findindex(array,word){
+      for(let i=0 ; i<array.length ; i++){
+        if(array[i]===word){
+          return i;
+        }
+      }
+      return -1;
+    }
+  </script>
+</html>

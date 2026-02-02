@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Functions</title>
+</head>
+<body>
+  
+  <script>
+    // function practice(){
+    //   alert("stuff happened");
+    // }
+    // practice();
+    // let functioncontainer = function(){
+    //   alert("more stuff happened");
+    // }
+    // functioncontainer();
+    // const object1 = {
+    //   name: "example",
+    //   method: function(){
+    //     alert("object method called");
+    //   },
+    //   fun : function greeting(){
+    //     alert("arrow function in object called");
+    //   }
+    // };
+    // object1.method();
+    // object1.fun();
+
+    // function run(callback){
+    //   callback();
+    // }
+    // run(function (){
+    //   alert("callback function executed");
+    // });
+    setTimeout(function(){     
+      alert("This alert is shown after 2 seconds");
+    }, 2000);
+    // Asynchronous code:-
+    // is a which wont wait for the task to complete, it will start and then move on to the next line of code, like here, the setTimeout will start and then the console.log will execute without waiting for the timeout to finish
+    console.log("This log appears immediately");
+    //Synchronous code:- is a code which will wait for the task to complete before moving on to the next line of code
+    setInterval(function(){
+      console.log("This log appears every 3 seconds");
+    }, 3000);
+
+    const object2 = {
+      method: () => {
+        
+      },
+      method() {        //this is a better way to write methods in objects
+        
+      }
+    };
+  </script>
+</body>
+</html>

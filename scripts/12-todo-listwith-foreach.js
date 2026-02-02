@@ -7,15 +7,17 @@
     }
     function rendertodolist(){
       let todolistelements="";
-      for(let i=0 ; i<todolist.length ; i++){
+      
         let todo=todolist[i];
-        let htmlstuff=`<div>${todo.name}</div><div>${todo.date}</div><button onclick="
+        todolist.forEach(function(element,i) {
+          let htmlstuff=`<div>${element.name}</div><div>${element.date}</div><button onclick="
         todolist.splice(${i},1);
         rendertodolist();
         " 
         class="loop-button">Delete</button>`;
         todolistelements+=htmlstuff;
-      }
+        });
+      
       localStorage.setItem('todolist',JSON.stringify(todolist));
       document.querySelector('.todolistelements').innerHTML=todolistelements;
     }
